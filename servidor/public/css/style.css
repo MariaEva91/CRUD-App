@@ -104,6 +104,10 @@
   height: 20px;
 }
 
+.opacity {
+  opacity: 0.3;
+}
+
 .add-body {
   margin: 0;
   background-color: #D3D3D3;
@@ -156,6 +160,10 @@
 }
 
 .modal {
+  position: absolute;
+  z-index: 1;
+  margin-left: 35%;
+  margin-top: -20%;
   height: 100px;
   width: 350px;
   border: none;

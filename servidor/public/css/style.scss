@@ -98,6 +98,11 @@
 }
 
 
+.opacity{
+    opacity: 0.3;
+  }
+
+
 //add & edit  user
 
 .add-body{
@@ -137,6 +142,10 @@
 }
 
 .modal{
+    position: absolute;
+    z-index: 1;
+    margin-left: 35%;
+     margin-top: -20%;
     height: 100px;
     width: 350px;
     border: none;
@@ -149,6 +158,8 @@
     border: solid;
     
 }
+
+
 
 
 

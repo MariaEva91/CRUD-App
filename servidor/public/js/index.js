@@ -23,8 +23,12 @@ function eliminar(id){
         method: 'DELETE',
         success: function(){
             $('#user-' + id).remove();
-            alert('El usuario fue eliminado corrrectamente');
-            location.href = '/usuarios';
+            $('body').append( ` <div class="modal" id="modalAdd">
+            <p>El usuario  fue eliminado correctamente!🎉😍</p>
+        </div>`);
+        setTimeout(function(){
+            location.href = '/usuarios'}
+            ,2000)
         }
     })
 }

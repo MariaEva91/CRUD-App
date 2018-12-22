@@ -4,29 +4,30 @@ const myParam = urlParams.get('id');
 console.log(myParam);
 
 $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
-    $('#editarNombreUsuario').val(data.nombre);
-    $('#editarApellidoUsuario').val(data.apellido);
-    $('#editarTelefono').val(data.telefono);
-    $('#editarEmail').val(data.email)
+   var nombreEditado = $('#editarNombreUsuario').val(data.nombre);
+   var apellidoEditado = $('#editarApellidoUsuario').val(data.apellido);
+  var telefonoEditado =  $('#editarTelefono').val(data.telefono);
+   var emailEditado = $('#editarEmail').val(data.email)
     
 })
 
 $('#editarUsuario').on('click',function(){
-  /*  var validar = true;
+    
+  /* var validar = true;
 
-    if(nombre.length === 0 || nombre.length > 30){
+    if(nombreEditado.length === 0 || nombreEditado.length > 30){
         $('.errorNombre').removeClass('hide');
         validar = false;
     } 
-    if(apellido.length === 0 || apellido.length > 30){
+    if(apellidoEditado.length === 0 || apellidoEditado.length > 30){
         $('.errorApellido').removeClass('hide');
         validar = false;
     }
-    if(!(/^\d+$/.test(telefono))){
+    if(!(/^\d+$/.test(telefonoEditado))){
         $('.errorTelefono').removeClass('hide');
         validar = false;
     }
-    if( !(/^(([^<>()\[\]\\.,;:\s@“]+(\.[^<>()\[\]\\.,;:\s@“]+)*)|(“.+“))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) ){
+    if( !(/^(([^<>()\[\]\\.,;:\s@“]+(\.[^<>()\[\]\\.,;:\s@“]+)*)|(“.+“))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailEditado)) ){
         $('.errorEmail').removeClass('hide');
         validar = false;
     }
@@ -44,7 +45,13 @@ $('#editarUsuario').on('click',function(){
 
         }
            }).done(function(){
-            alert('El usuario fue editado corrrectamente');
-            location.href = '/usuarios';
-    })
-})
+            $('.nav').addClass('opacity');
+            $('.form').addClass('opacity');
+            $('body').append( ` <div class="modal" id="modalAdd">
+            <p>El usuario se ha editado correctamente!🎉😍</p>
+        </div>`);
+         setTimeout(function(){
+                location.href = '/usuarios'}
+                ,1000)
+            }
+           )})

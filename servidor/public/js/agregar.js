@@ -29,31 +29,63 @@ var validar = true;
     if( validar == false)
     return ;
     
-
-
-   
     $.ajax('http://localhost:3000/api/users',{
             method: "POST",
             data:{
                 nombre: nombre,
                  apellido: apellido,
                  telefono: telefono,
-                email: email
-                
+                email: email 
             }
         }).done(function(){
-            setTimeout(function(){
-                $('.add-body').append(
-                    ` <div class="modal" id="modalAdd">
-                    <p>El usuario se ha creado correctamente!🎉😍</p>
-                </div>`
-                ),3000
-            });
-           
-            
-           // alert('El usuario fue creado corrrectamente');//esto deberia ser un modal
-            location.href = '/usuarios';
+           $('#editarUsuario').on('click',function(){
+    
+   var validar = true;
 
-    })
-})
+    if(nombreEditado.length === 0 || nombreEditado.length > 30){
+        $('.errorNombre').removeClass('hide');
+        validar = false;
+    } 
+    if(apellidoEditado.length === 0 || apellidoEditado.length > 30){
+        $('.errorApellido').removeClass('hide');
+        validar = false;
+    }
+    if(!(/^\d+$/.test(telefonoEditado))){
+        $('.errorTelefono').removeClass('hide');
+        validar = false;
+    }
+    if( !(/^(([^<>()\[\]\\.,;:\s@“]+(\.[^<>()\[\]\\.,;:\s@“]+)*)|(“.+“))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailEditado)) ){
+        $('.errorEmail').removeClass('hide');
+        validar = false;
+    }
+    if( validar == false)
+    return ;
+    
+   
+    $.ajax('http://localhost:3000/api/users/' + myParam,{
+        method:"PUT",
+        data:{
+            nombre: $('#editarNombreUsuario').val(),
+            apellido: $('#editarApellidoUsuario').val(),
+            telefono: $('#editarTelefono').val(),
+            email: $('#editarEmail').val()
+
+        }
+           }).done(function(){
+            $('.nav').addClass('opacity');
+            $('.form').addClass('opacity');
+            $('body').append( ` <div class="modal" id="modalAdd">
+            <p>El usuario se ha creado correctamente!🎉😍</p>
+        </div>`);
+         setTimeout(function(){
+                location.href = '/usuarios'}
+                ,1000)
+            }
+           )})
+         setTimeout(function(){
+                location.href = '/usuarios'}
+                ,1000)
+        }
+)})
+
 
