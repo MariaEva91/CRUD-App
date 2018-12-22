@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body class="add-body">
+    <nav class="nav">
+<h2>Agregar nuevo usuario</h2>
+</nav>
+<form class="form">
+        <label for="">Nombre</label>
+        <input id="nombreUsuario" type="text" name="name"> 
+        <p class="hide errorNombre">*El nombre del usuario es requerido y debe ser menor a 30 caracteres</p>
+        <label for="">Apellido</label>
+        <input id="apellidoUsuario" type="text" name="surname">
+        <p class="hide errorApellido">*El apellido del usuario es requerido y debe ser menor a 30 caracteres</p>
+        <label for="">Telefono</label>
+        <input id="telefonoUsuario" type="text" name="phone">
+        <p class="hide errorTelefono">* Campo obligatorio. Solo ingresar numeros</p>
+        <label for="">Email</label>
+        <input id="emailUsuario" type="text">
+        <p class="hide errorEmail">* Campo obligatorio. El email ingresado no es valido</p>
+        <button type="button" id="crearUsuario">Crear</button>
+    </form>
+
+    <div class="modal hide" id="modalAdd">
+        <p>El usuario se ha creado correctamente!🎉😍</p>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/agregar.js"></script>
+</body>
+</html>

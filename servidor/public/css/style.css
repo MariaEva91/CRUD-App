@@ -1,0 +1,171 @@
+.body {
+  margin: 0;
+  background-color: #D3D3D3;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+}
+
+.hide {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #708090;
+}
+.nav .title {
+  font-family: "Playfair Display", serif;
+  margin-left: 50px;
+}
+
+.table {
+  border: groove;
+  border-radius: 15px;
+  border-width: 5px;
+  text-align: center;
+  margin-left: 23%;
+  margin-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 25px;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  background-color: white;
+}
+.table .fa-trash-alt {
+  color: #cc6699;
+}
+.table .fa-trash-alt:hover {
+  color: #ff3399;
+}
+.table .fa-edit {
+  color: #660033;
+}
+.table .fa-edit:hover {
+  color: #e60073;
+}
+
+#agregar {
+  font-family: "Playfair Display", serif;
+  color: black;
+  background-color: hotpink;
+  font-size: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: auto;
+  color: white;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  margin-top: 25px;
+}
+#agregar a {
+  text-decoration: none;
+  color: white;
+}
+
+#agregar:hover {
+  background-color: #ff99bb;
+}
+
+#filtrar {
+  font-family: "Playfair Display", serif;
+  color: black;
+  background-color: hotpink;
+  font-size: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: auto;
+  color: white;
+  padding: 10px;
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+}
+#filtrar a {
+  text-decoration: none;
+  color: white;
+}
+
+#filtrar:hover {
+  background-color: #ff99bb;
+}
+
+.inputFiltrar {
+  margin-left: 75px;
+  margin-top: 30px;
+  margin-right: 20px;
+  width: 250px;
+  height: 20px;
+}
+
+.add-body {
+  margin: 0;
+  background-color: #D3D3D3;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+}
+.form input {
+  width: 350px;
+  border: none;
+  height: 20px;
+}
+.form p {
+  font-size: 15px;
+  color: red;
+}
+
+#agregarusuario {
+  font-family: "Playfair Display", serif;
+  color: black;
+  background-color: hotpink;
+  font-size: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: auto;
+  color: white;
+  padding: 10px;
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+#agregarusuario a {
+  text-decoration: none;
+  color: white;
+}
+
+#agregarUsuario:hover {
+  background-color: #ff99bb;
+}
+
+.modal {
+  height: 100px;
+  width: 350px;
+  border: none;
+  text-align: center;
+  background-color: hotpink;
+  border-radius: 5%;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  padding: 10px;
+  border: solid;
+}
+
+/*# sourceMappingURL=style.css.map */

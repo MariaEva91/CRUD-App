@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body class="add-body">
+    <nav class="nav">
+    <p>Editar usuario</p>
+    </nav>
+    <form class="form">
+    <label for="">Nombre</label>
+    <input id="editarNombreUsuario" type="text" name="name"> 
+    <p class="hide errorNombre">*El nombre del usuario es requerido y debe ser menor a 30 caracteres</p>
+    <label for="">Apellido</label>
+     <input id="editarApellidoUsuario" type="text" name="surname">
+     <p class="hide errorApellido">*El apellido del usuario es requerido y debe ser menor a 30 caracteres</p>
+     <label for="">Telefono</label>
+    <input id="editarTelefono" type="text" name="phone">
+    <p class="hide errorTelefono">*Solo ingresar numeros</p>
+     <label for="">Email</label>
+     <input id="editarEmail" type="text">
+     <p class="hide errorEmail">*El email ingresado no es valido</p>
+     <button type="button" id="editarUsuario">Editar</button>
+     </form>
+
+     <div class="modal hide">
+        <p>El usuario se ha editado correctamente!🎉😍</p>
+    </div>
+        
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/editar.js"></script>
+</body>
+</html>
