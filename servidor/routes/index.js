@@ -28,7 +28,6 @@ router.get('/usuarios', function(req,res,next){
   res.sendFile(path.join(__dirname,'..','public','html','index.html'))
 })
 
-
 router.get('/usuarios/new',function(req,res,next){
   res.sendFile(path.join(__dirname,'..','public','html','add.html'))
 })
@@ -46,10 +45,25 @@ router.get('/users', function(req, res, next) {
 
 
 // ruta que me muestre todos los usuarios : api/users
+//ruta para filtrar por usuario
 
-router.get('/api/users',function(req,res,next){
-  res.json(ArchivoEnJson)
-})
+router.get('/api/users', function(req, res, next) {
+  let search = req.query.search;
+ 
+  if(search && search.length > 0){
+  let usuariosFiltrados = ArchivoEnJson.filter(function(u){
+ 
+     return u.nombre.toLowerCase().indexOf(search.toLowerCase()) >=0 ||
+        u.apellido.toLowerCase().indexOf(search.toLowerCase()) >= 0||
+       u.telefono.indexOf(search) >= 0||
+       u.email.toLowerCase().indexOf(search.toLowerCase()) >=0;
+     });
+     
+  res.json(usuariosFiltrados);
+  return;
+  }res.json(ArchivoEnJson)
+ });
+ 
 
 //importar el modulo fs
 //esto es para escribir en un archivo
@@ -60,7 +74,7 @@ router.get('/api/users',function(req,res,next){
 
  let contenidoDelArchivo = fs.readFileSync('datos.json');
  let ArchivoEnJson = JSON.parse(contenidoDelArchivo);
-//  console.log(ArchivoEnJson);
+
 
 
 //ruta para agregar un nuevo usuario con id autoincremental
@@ -159,22 +173,5 @@ router.delete('/api/users/:id',function(req,res,next){
   
 })
 
-//ruta para filtrar
-
-router.get('/api/users', function(req, res, next) {
- let search = req.query.search;
-
- if(search && search.length > 0){
- let usuariosFiltrados = ArchivoEnJson.filter(function(u){
-
-    return u.nombre.toLowerCase().indexOf(search.toLowerCase()) >=0 ||
-       u.apellido.toLowerCase().indexOf(search.toLowerCase()) >= 0||
-      u.telefono.indexOf(search) >= 0||
-      u.email.toLowerCase().indexOf(search.toLowerCase()) >=0;
-    });
- res.json(usuariosFiltrados);
- return;
-}
-});
 
 module.exports = router;

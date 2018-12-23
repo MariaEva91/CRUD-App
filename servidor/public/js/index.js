@@ -36,12 +36,12 @@ function eliminar(id){
 //funcion para filtrar
 
 $('#filtrar').on('click',function(){
-    const palabraBuscada = $('#filtrar').val();
-    console.log(palabraBuscada);
+    const palabraBuscada = $('#search').val();
+   // console.log(palabraBuscada);
     $.ajax('http://localhost:3000/api/users?search=' + palabraBuscada ).done(function(users){
-        console.log(users)
-        for (let i = 0; i < users.length; i++){
+       // console.log(users)
         $('table td').remove();
+        for (let i = 0; i < users.length; i++){
         $('table').append(
             ` <tr>
             <td>${users[i].nombre}</td>
