@@ -2,7 +2,6 @@
 .body{
     margin: 0;
     background-color: #D3D3D3;
-    font-family: 'Playfair Display', serif;
     font-size: 25px; 
 }
 .hide{
@@ -63,9 +62,7 @@
     a{
         text-decoration: none;
         color:white;
-    }
-   
-    
+    } 
 }
 
 #agregar{
@@ -103,13 +100,6 @@
 
 //add & edit  user
 
-.add-body{
-    margin: 0;
-    background-color: #D3D3D3;
-    font-family: 'Playfair Display', serif;
-    font-size: 25px; 
-
-}
 .form{
     display: flex;
     flex-direction: column;
@@ -127,7 +117,7 @@
         color: red;
     }
 }
-#agregarusuario {
+#crearUsuario {
     @include buttons();
     padding: 10px;
     width: 120px;
@@ -135,7 +125,7 @@
     font-size: 18px;
     margin-top: 20px;
 }
-#agregarUsuario:hover{
+#crearUsuario:hover{
     background-color: #ff99bb;
 }
 
@@ -155,6 +145,17 @@
     padding: 10px;
     border: solid;
     
+}
+#editUsuario {
+    @include buttons();
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+#editUsuario:hover{
+    background-color: #ff99bb;
 }
 
 

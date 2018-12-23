@@ -1,7 +1,6 @@
 .body {
   margin: 0;
   background-color: #D3D3D3;
-  font-family: "Playfair Display", serif;
   font-size: 25px;
 }
 
@@ -108,13 +107,6 @@
   opacity: 0.3;
 }
 
-.add-body {
-  margin: 0;
-  background-color: #D3D3D3;
-  font-family: "Playfair Display", serif;
-  font-size: 25px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -133,7 +125,7 @@
   color: red;
 }
 
-#agregarusuario {
+#crearUsuario {
   font-family: "Playfair Display", serif;
   color: black;
   background-color: hotpink;
@@ -150,12 +142,12 @@
   font-size: 18px;
   margin-top: 20px;
 }
-#agregarusuario a {
+#crearUsuario a {
   text-decoration: none;
   color: white;
 }
 
-#agregarUsuario:hover {
+#crearUsuario:hover {
   background-color: #ff99bb;
 }
 
@@ -174,6 +166,32 @@
   font-size: 25px;
   padding: 10px;
   border: solid;
+}
+
+#editUsuario {
+  font-family: "Playfair Display", serif;
+  color: black;
+  background-color: hotpink;
+  font-size: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: auto;
+  color: white;
+  padding: 10px;
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+#editUsuario a {
+  text-decoration: none;
+  color: white;
+}
+
+#editUsuario:hover {
+  background-color: #ff99bb;
 }
 
 /*# sourceMappingURL=style.css.map */

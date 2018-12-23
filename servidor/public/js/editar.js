@@ -11,7 +11,7 @@ $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
     
 })
 
-$('#editarUsuario').on('click',function(){
+$('#editUsuario').on('click',function(){
     
   /* var validar = true;
 
