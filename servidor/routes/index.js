@@ -39,7 +39,6 @@ router.get('/usuarios/edit',function(req,res,next){
 //ruta para mostrar todos los usuarios
 
 router.get('/users', function(req, res, next) {
-  // console.log(users)
   res.json(users);
 });
 
@@ -163,8 +162,8 @@ router.delete('/api/users/:id',function(req,res,next){
     console.log('hfjfjfh', ArchivoEnJson[i])
     const currentUser = ArchivoEnJson[i];
     if(id == currentUser.id){
-     var posicion = ArchivoEnJson.indexOf[currentUser];
-      ArchivoEnJson.splice(posicion,1)
+    // var posicion = ArchivoEnJson.indexOf[currentUser];
+      ArchivoEnJson.splice(i,1)
     }
   }
   fs.writeFileSync('datos.json',JSON.stringify(ArchivoEnJson));

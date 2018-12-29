@@ -158,14 +158,13 @@
   margin-top: -20%;
   height: 100px;
   width: 350px;
-  border: none;
+  border: outset;
   text-align: center;
   background-color: hotpink;
   border-radius: 5%;
   font-family: "Playfair Display", serif;
   font-size: 25px;
   padding: 10px;
-  border: solid;
 }
 
 #editUsuario {
