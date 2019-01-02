@@ -2,6 +2,7 @@ var id
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('id');
 console.log(myParam);
+//
 
 $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
    var nombreEditado = $('#editarNombreUsuario').val(data.nombre);
