@@ -12,8 +12,12 @@ $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
 })
 
 $('#editUsuario').on('click',function(){
-    
-  /* var validar = true;
+    var nombreEditado = $('#editarNombreUsuario').val();
+   var apellidoEditado = $('#editarApellidoUsuario').val();
+  var telefonoEditado =  $('#editarTelefono').val();
+   var emailEditado = $('#editarEmail').val();
+   
+   var validar = true;
 
     if(nombreEditado.length === 0 || nombreEditado.length > 30){
         $('.errorNombre').removeClass('hide');
@@ -32,7 +36,7 @@ $('#editUsuario').on('click',function(){
         validar = false;
     }
     if( validar == false)
-    return ;*/
+    return ;
     
    
     $.ajax('http://localhost:3000/api/users/' + myParam,{
@@ -45,6 +49,7 @@ $('#editUsuario').on('click',function(){
 
         }
            }).done(function(){
+            //   console.log(data.nombre)
             $('.nav').addClass('opacity');
             $('.form').addClass('opacity');
             $('body').append( ` <div class="modal" id="modalAdd">
