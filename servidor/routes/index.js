@@ -17,12 +17,12 @@ const users = [{
   email: 'contacto@hotmail.com'
 }]
 
-//prueba ping pong
+//ping pong test-------------------------------------
 router.get('/ping', function(req, res, next) {
   res.send('pong');
 });
 
-//agregar rutas para tener todo en un mismo dominio
+//add routes-----------------------------------------
 
 router.get('/usuarios', function(req,res,next){
   res.sendFile(path.join(__dirname,'..','public','html','index.html'))
@@ -36,15 +36,13 @@ router.get('/usuarios/edit',function(req,res,next){
   res.sendFile(path.join(__dirname,'..','public','html','editar.html'))
 })
 
-//ruta para mostrar todos los usuarios
+//route to show the users--------------------------------
 
 router.get('/users', function(req, res, next) {
   res.json(users);
 });
 
-
-// ruta que me muestre todos los usuarios : api/users
-//ruta para filtrar por usuario
+//filter by user------------------------------------------
 
 router.get('/api/users', function(req, res, next) {
   let search = req.query.search;
@@ -62,21 +60,13 @@ router.get('/api/users', function(req, res, next) {
   return;
   }res.json(ArchivoEnJson)
  });
- 
 
-//importar el modulo fs
-//esto es para escribir en un archivo
-
-// fs.writeFileSync('datos.json',JSON.stringify(users))
-
-//Tambien puedo leer el archivo
+ //import the fs module
 
  let contenidoDelArchivo = fs.readFileSync('datos.json');
  let ArchivoEnJson = JSON.parse(contenidoDelArchivo);
 
-
-
-//ruta para agregar un nuevo usuario con id autoincremental
+//add new user with a ID----------------------------------
 
 router.get('/api/users/:id',function(req,res,next){
   const id = req.params.id
@@ -93,7 +83,7 @@ router.post('/api/users',function(req,res,next){
   const lastId = ArchivoEnJson[ArchivoEnJson.length-1].id;
   user.id = lastId + 1;
 
-  //validar desde el lado del servidor
+  //validation
 
 const body = req.body
 
@@ -109,21 +99,19 @@ const body = req.body
     if(!(/^(([^<>()\[\]\\.,;:\s@“]+(\.[^<>()\[\]\\.,;:\s@“]+)*)|(“.+“))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(body.email))){
       return res.status(400).end('');
 }
-    
  ArchivoEnJson.push(user);
-  //agregar un nuevo usuario y guardarlo en json
+  //add a new user, y set on json
   fs.writeFileSync('datos.json',JSON.stringify(ArchivoEnJson));
     res.json(ArchivoEnJson)
-
 })
 
-//ruta para editar un usuario
+//edit route--------------------------------------------------
 
 router.put('/api/users/:id',function(req,res,next){
   const id = req.params.id;
   const body = req.body;
 
-  //validar
+  //validation
 
   if(body.nombre === 0 || body.nombre.length >= 30){
     return res.status(400).end('');
@@ -137,9 +125,9 @@ router.put('/api/users/:id',function(req,res,next){
   if(!(/^(([^<>()\[\]\\.,;:\s@“]+(\.[^<>()\[\]\\.,;:\s@“]+)*)|(“.+“))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(body.email))){
     return res.status(400).end('');
 };
-//buscar el usuario
+//looking for the user
+
   for(let i = 0; i < ArchivoEnJson.length; i++){
-   console.log('editado', ArchivoEnJson[i])
     const currentUser = ArchivoEnJson[i];
     if(id == currentUser.id){
       currentUser.nombre = body.nombre,
@@ -148,21 +136,18 @@ router.put('/api/users/:id',function(req,res,next){
       currentUser.email = body.email
     }
     fs.writeFileSync('datos.json',JSON.stringify(ArchivoEnJson));
-    console.log(ArchivoEnJson);
     res.json(ArchivoEnJson)
   }
 })
 
-//ruta para eliminar un usuario
+//delete route-------------------------------------------------
 
 router.delete('/api/users/:id',function(req,res,next){
   const id = req.params.id;
 
   for(let i = 0; i < ArchivoEnJson.length;i++){
-    console.log('hfjfjfh', ArchivoEnJson[i])
     const currentUser = ArchivoEnJson[i];
     if(id == currentUser.id){
-    // var posicion = ArchivoEnJson.indexOf[currentUser];
       ArchivoEnJson.splice(i,1)
     }
   }

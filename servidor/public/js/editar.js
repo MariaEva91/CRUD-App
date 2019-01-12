@@ -1,8 +1,8 @@
 var id 
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('id');
-console.log(myParam);
-//
+
+//get the dates to edit
 
 $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
    var nombreEditado = $('#editarNombreUsuario').val(data.nombre);
@@ -12,12 +12,16 @@ $.ajax('http://localhost:3000/api/users/'+ myParam).done(function(data){
     
 })
 
+//edit the user, and save the changes
+
 $('#editUsuario').on('click',function(){
     var nombreEditado = $('#editarNombreUsuario').val();
    var apellidoEditado = $('#editarApellidoUsuario').val();
   var telefonoEditado =  $('#editarTelefono').val();
    var emailEditado = $('#editarEmail').val();
    
+   //validation
+
    var validar = true;
 
     if(nombreEditado.length === 0 || nombreEditado.length > 30){
@@ -50,7 +54,6 @@ $('#editUsuario').on('click',function(){
 
         }
            }).done(function(){
-            //   console.log(data.nombre)
             $('.nav').addClass('opacity');
             $('.form').addClass('opacity');
             $('body').append( ` <div class="modal" id="modalAdd">

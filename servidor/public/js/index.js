@@ -1,5 +1,6 @@
+//get the users
+
 $.ajax('http://localhost:3000/api/users').done(function (users) {
-    console.log(users)
     for (let i = 0; i < users.length; i++) {
         $('table').append(
             ` <tr>
@@ -16,7 +17,7 @@ $.ajax('http://localhost:3000/api/users').done(function (users) {
 
 });
 
-//funcion para eliminar
+//delete function
 
 function eliminar(id){
     $.ajax('http://localhost:3000/api/users/'+ id,{
@@ -33,13 +34,11 @@ function eliminar(id){
     })
 }
 
-//funcion para filtrar
+//filter function
 
 $('#filtrar').on('click',function(){
     const palabraBuscada = $('#search').val();
-   // console.log(palabraBuscada);
     $.ajax('http://localhost:3000/api/users?search=' + palabraBuscada ).done(function(users){
-       // console.log(users)
         $('table td').remove();
         for (let i = 0; i < users.length; i++){
         $('table').append(
