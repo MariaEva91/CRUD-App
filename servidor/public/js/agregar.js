@@ -7,7 +7,6 @@ $('#crearUsuario').on('click', function(){
     var email = $('#emailUsuario').val();
 
 //validation
-
 var validar = true;
 
     if(nombre.length === 0 || nombre.length > 30){
